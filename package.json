@@ -1,0 +1,28 @@
+{
+  "name": "logos.metrogo.app",
+  "version": "1.0.0",
+  "description": "MetroGo Logo Api",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "run": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matwin04/logos.metrogo.app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/matwin04/logos.metrogo.app/issues"
+  },
+  "homepage": "https://github.com/matwin04/logos.metrogo.app#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^9.0.1",
+    "nodemon": "^3.1.14"
+  }
+}
