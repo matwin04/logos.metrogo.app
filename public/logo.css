@@ -1,0 +1,37 @@
+/*
+ * logos.css
+ * Generated helper classes for logos.metrogo.app
+ * One custom property + one .logo-* class per manifest key.
+ * Regenerate this file whenever the manifest gains a new agency.
+ */
+
+:root {
+  --logo-metro-losangeles: url("https://logos.metrogo.app/metro~losangeles/main.svg");
+  --logo-foothilltransit: url("https://logos.metrogo.app/foothilltransit/main.svg");
+  --logo-metrolinktrains: url("https://logos.metrogo.app/metrolinktrains/main.svg");
+  --logo-amtrak: url("https://logos.metrogo.app/amtrak/main.svg");
+  --logo-ladot: url("https://logos.metrogo.app/ladot/main.svg");
+  --logo-torrancetransit: url("https://logos.metrogo.app/torrancetransit/main.svg");
+  --logo-bigbluebus: url("https://logos.metrogo.app/bigbluebus/main.svg");
+  --logo-flixbus-america: url("https://logos.metrogo.app/flixbus~america/main.svg");
+  --logo-montebellobuslines: url("https://logos.metrogo.app/montebellobuslines/main.svg");
+}
+
+.logo {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.logo-metro-losangeles  { background-image: var(--logo-metro-losangeles); }
+.logo-foothilltransit   { background-image: var(--logo-foothilltransit); }
+.logo-metrolinktrains   { background-image: var(--logo-metrolinktrains); }
+.logo-amtrak            { background-image: var(--logo-amtrak); }
+.logo-ladot             { background-image: var(--logo-ladot); }
+.logo-torrancetransit   { background-image: var(--logo-torrancetransit); }
+.logo-bigbluebus        { background-image: var(--logo-bigbluebus); }
+.logo-flixbus-america   { background-image: var(--logo-flixbus-america); }
+.logo-montebellobuslines{ background-image: var(--logo-montebellobuslines); }

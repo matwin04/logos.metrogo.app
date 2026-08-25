@@ -1,0 +1,245 @@
+/* style.css — pulls in fonts and the generated logo classes, then styles the page */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+@import url("./logos.css");
+
+:root {
+  --ink: #12151b;
+  --panel: #1c212a;
+  --panel-line: #2c333f;
+  --paper: #ece7d8;
+  --paper-dim: #9aa0ab;
+  --blue: #0072bc;   /* rail — Metro's own A Line blue */
+  --amber: #f5a623;  /* municipal bus */
+  --slate: #8a8f98;  /* intercity / private */
+
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+a { color: var(--amber); }
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+/* ---------- hero: reads like a bus-stop pole sign ---------- */
+
+.hero {
+  border-bottom: 1px solid var(--panel-line);
+  padding: 56px 0 32px;
+}
+
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+
+.hero p {
+  max-width: 60ch;
+  color: var(--paper-dim);
+  font-size: 16px;
+  margin: 0;
+}
+
+.hero code {
+  font-family: var(--mono);
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: var(--paper);
+}
+
+/* ---------- legend ---------- */
+
+.legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 24px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--paper-dim);
+}
+
+.legend .dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 6px;
+  position: relative;
+  top: 0;
+}
+
+.dot.rail { background: var(--blue); }
+.dot.bus { background: var(--amber); }
+.dot.intercity { background: var(--slate); }
+
+/* ---------- directory board ---------- */
+
+.board {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--panel-line);
+}
+
+.board li {
+  display: grid;
+  grid-template-columns: 10px 56px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--panel-line);
+  transition: background 0.15s ease;
+}
+
+.board li:hover {
+  background: var(--panel);
+}
+
+.roundel {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.roundel.rail { background: var(--blue); }
+.roundel.bus { background: var(--amber); }
+.roundel.intercity { background: var(--slate); }
+
+.mark {
+  width: 56px;
+  height: 40px;
+  background: var(--paper);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.meta .name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.meta .slug {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--paper-dim);
+  margin-top: 2px;
+}
+
+.endpoint {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--paper-dim);
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .board li {
+    grid-template-columns: 10px 44px 1fr;
+  }
+  .endpoint {
+    grid-column: 1 / -1;
+    text-align: left;
+    padding-left: 64px;
+  }
+}
+
+/* ---------- usage section ---------- */
+
+.usage {
+  margin-top: 64px;
+}
+
+.usage h2 {
+  font-family: var(--mono);
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.usage > p {
+  color: var(--paper-dim);
+  margin: 0 0 28px;
+  max-width: 60ch;
+}
+
+.snippet {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: 8px;
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+
+.snippet .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--panel-line);
+}
+
+.snippet pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--paper);
+}
+
+.snippet pre .cm { color: var(--paper-dim); }
+.snippet pre .st { color: var(--blue); }
+.snippet pre .kw { color: var(--amber); }
+
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--panel-line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--paper-dim);
+}
