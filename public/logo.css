@@ -6,7 +6,7 @@
  */
 
 :root {
-  --logo-metro-losangeles: url("https://logos.metrogo.app/metro~losangeles/main.svg");
+  --logo-metro-losangeles: url("/metro~losangeles/main.svg");
   --logo-foothilltransit: url("https://logos.metrogo.app/foothilltransit/main.svg");
   --logo-metrolinktrains: url("https://logos.metrogo.app/metrolinktrains/main.svg");
   --logo-amtrak: url("https://logos.metrogo.app/amtrak/main.svg");
