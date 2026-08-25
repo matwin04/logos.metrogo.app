@@ -3,13 +3,7 @@ import path from "path";
 import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
-import Database from "better-sqlite3";
-import fs from "node:fs/promises";
-import { fetchAllTrains } from "amtrak";
-import session from "express-session";
-//import { sql, setupDB } from "./db.js";
-//import gtfsRealtime from "gtfs-realtime";
-//import {runAll} from "./gtfsrt.js";
+
 
 dotenv.config();
 
@@ -19,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const VIEWS_DIR = path.join(__dirname, "views");
 const PARTIALS_DIR = path.join(VIEWS_DIR, "partials");
-const IMGS_DIR = path.join
+//const IMGS_DIR = path.join("")
 //const DB_PATH = path.join(__dirname, "public", "data.db");
 //const FEEDS_PATH = path.join(__dirname, "public", "data","feeds");
 // =============================================
@@ -71,7 +65,9 @@ app.get("/", async (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about");
 });
-
+app.get("/:agency/main.svg", (req, res) => {
+    res.json("main");
+});
 // =============================================
 // DATA MANAGEMENT ENDPOINTS
 // =============================================
