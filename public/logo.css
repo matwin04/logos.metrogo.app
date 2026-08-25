@@ -1,5 +1,5 @@
 /*
- * logos.css
+ * logo.css
  * Generated helper classes for logos.metrogo.app
  * One custom property + one .logo-* class per manifest key.
  * Regenerate this file whenever the manifest gains a new agency.
@@ -11,8 +11,8 @@
   --logo-metrolinktrains: url("https://logos.metrogo.app/api/metrolinktrains/main.svg");
   --logo-amtrak: url("https://logos.metrogo.app/api/amtrak/main.svg");
   --logo-ladot: url("https://logos.metrogo.app/api/ladot/main.svg");
-  --logo-torrancetransit: url("https://logos.metrogo.app/torrancetransit/api/main.svg");
-  --logo-bigbluebus: url("https://logos.metrogo.app/bigbluebus/api/main.svg");
+  --logo-torrancetransit: url("https://logos.metrogo.app/api/torrancetransit/main.svg");
+  --logo-bigbluebus: url("https://logos.metrogo.app/api/bigbluebus/main.svg");
   --logo-flixbus-america: url("https://logos.metrogo.app/api/flixbus~america/main.svg");
   --logo-montebellobuslines: url("https://logos.metrogo.app/api/montebellobuslines/main.svg");
 }
@@ -26,12 +26,30 @@
   background-size: contain;
 }
 
-.logo-metro-losangeles  { background-image: var(--logo-metro-losangeles); }
-.logo-foothilltransit   { background-image: var(--logo-foothilltransit); }
-.logo-metrolinktrains   { background-image: var(--logo-metrolinktrains); }
-.logo-amtrak            { background-image: var(--logo-amtrak); }
-.logo-ladot             { background-image: var(--logo-ladot); }
-.logo-torrancetransit   { background-image: var(--logo-torrancetransit); }
-.logo-bigbluebus        { background-image: var(--logo-bigbluebus); }
-.logo-flixbus-america   { background-image: var(--logo-flixbus-america); }
-.logo-montebellobuslines{ background-image: var(--logo-montebellobuslines); }
+.logo-metro-losangeles {
+  background-image: var(--logo-metro-losangeles);
+}
+.logo-foothilltransit {
+  background-image: var(--logo-foothilltransit);
+}
+.logo-metrolinktrains {
+  background-image: var(--logo-metrolinktrains);
+}
+.logo-amtrak {
+  background-image: var(--logo-amtrak);
+}
+.logo-ladot {
+  background-image: var(--logo-ladot);
+}
+.logo-torrancetransit {
+  background-image: var(--logo-torrancetransit);
+}
+.logo-bigbluebus {
+  background-image: var(--logo-bigbluebus);
+}
+.logo-flixbus-america {
+  background-image: var(--logo-flixbus-america);
+}
+.logo-montebellobuslines {
+  background-image: var(--logo-montebellobuslines);
+}

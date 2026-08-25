@@ -1,7 +1,6 @@
-/* style.css — pulls in fonts and the generated logo classes, then styles the page */
+/* style.css — pulls in fonts, then styles the page. logo.css is linked separately in the HTML. */
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
-@import url("./logo.css");
 
 :root {
   --ink: #12151b;

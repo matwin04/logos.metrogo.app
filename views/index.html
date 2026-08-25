@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>logos.metrogo.app — agency &amp; route icon directory</title>
     <link rel="stylesheet" href="/public/style.css" />
-    <link rel="stylesheet" href="/public/logo.css"/>
+    <link rel="stylesheet" href="/public/logo.css" />
   </head>
   <body>
     <div class="wrap">
@@ -14,8 +14,8 @@
         <h1>SoCal transit logos,<br />one lookup away</h1>
         <p>
           Every agency in the manifest is served as a proxied, cached SVG at
-          <code>/&lt;agency&gt;/main.svg</code>. Route icons live under
-          <code>/&lt;agency&gt;/routes/&lt;route_id&gt;.svg</code> where a system publishes one.
+          <code>/api/&lt;agency&gt;/main.svg</code>. Route icons live under
+          <code>/api/&lt;agency&gt;/routes/&lt;route_id&gt;.svg</code> where a system publishes one.
         </p>
         <div class="legend">
           <span><span class="dot rail"></span>Rail / commuter</span>
@@ -24,125 +24,187 @@
         </div>
       </header>
 
-      <ul class="board">
-        <li>
-          <span class="roundel rail"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/metro~losangeles/main.svg" alt="LA Metro logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">LA Metro</div>
-            <div class="slug">metro~losangeles</div>
-          </span>
-          <span class="endpoint">/metro~losangeles/main.svg</span>
-          <span class="logo logo-metro-losangeles"></span>
-        </li>
+      <div class="directory">
 
-        <li>
-          <span class="roundel bus"></span>
-          <span class="mark"
-            ><img
-              src="https://logos.metrogo.app/api/foothilltransit/main.svg"
-              alt="Foothill Transit logo"
-              loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">Foothill Transit</div>
-            <div class="slug">foothilltransit</div>
-          </span>
-          <span class="endpoint">/foothilltransit/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel rail"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/metro~losangeles/main.svg" alt="LA Metro logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">LA Metro</div>
+              <div class="slug">metro~losangeles</div>
+            </span>
+            <span class="endpoint">/metro~losangeles/main.svg</span>
+          </div>
+          <div class="routes">
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/801.svg" alt="A Line" loading="lazy" /></span>
+              <span class="label">A · 801</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/B.svg" alt="B Line" loading="lazy" /></span>
+              <span class="label">B</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/C.svg" alt="C Line" loading="lazy" /></span>
+              <span class="label">C</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/D.svg" alt="D Line" loading="lazy" /></span>
+              <span class="label">D</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/E.svg" alt="E Line" loading="lazy" /></span>
+              <span class="label">E</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/K.svg" alt="K Line" loading="lazy" /></span>
+              <span class="label">K</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/L.svg" alt="L Line" loading="lazy" /></span>
+              <span class="label">L</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/G.svg" alt="G Line" loading="lazy" /></span>
+              <span class="label">G · busway</span>
+            </span>
+            <span class="route-chip">
+              <span class="badge"><img src="https://logos.metrogo.app/api/metro~losangeles/routes/J.svg" alt="J Line" loading="lazy" /></span>
+              <span class="label">J · busway</span>
+            </span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel rail"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/metrolinktrains/main.svg" alt="Metrolink logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">Metrolink</div>
-            <div class="slug">metrolinktrains</div>
-          </span>
-          <span class="endpoint">/metrolinktrains/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel bus"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/foothilltransit/main.svg" alt="Foothill Transit logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Foothill Transit</div>
+              <div class="slug">foothilltransit</div>
+            </span>
+            <span class="endpoint">/foothilltransit/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel rail"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/amtrak/main.svg" alt="Amtrak logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">Amtrak</div>
-            <div class="slug">amtrak</div>
-          </span>
-          <span class="endpoint">/amtrak/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel rail"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/metrolinktrains/main.svg" alt="Metrolink logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Metrolink</div>
+              <div class="slug">metrolinktrains</div>
+            </span>
+            <span class="endpoint">/metrolinktrains/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel bus"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/ladot/main.svg" alt="LADOT logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">LADOT</div>
-            <div class="slug">ladot</div>
-          </span>
-          <span class="endpoint">/ladot/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel rail"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/amtrak/main.svg" alt="Amtrak logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Amtrak</div>
+              <div class="slug">amtrak</div>
+            </span>
+            <span class="endpoint">/amtrak/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel bus"></span>
-          <span class="mark"
-            ><img
-              src="https://logos.metrogo.app/api/torrancetransit/main.svg"
-              alt="Torrance Transit logo"
-              loading="lazy"
-          /></span>
-          <span class="meta">
-            <span class="name">Torrance Transit</span>
-            <span class="slug">torrancetransit</span>
-          </span>
-          <span class="endpoint">/torrancetransit/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel rail"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/octa/main.svg" alt="OCTA / OC Bus logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">OCTA (OC Bus)</div>
+              <div class="slug">octa</div>
+            </span>
+            <span class="endpoint">/octa/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel bus"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/bigbluebus/main.svg" alt="Big Blue Bus logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">Big Blue Bus</div>
-            <div class="slug">bigbluebus</div>
-          </span>
-          <span class="endpoint">/bigbluebus/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel bus"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/ladot/main.svg" alt="LADOT logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">LADOT</div>
+              <div class="slug">ladot</div>
+            </span>
+            <span class="endpoint">/ladot/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel intercity"></span>
-          <span class="mark"
-            ><img src="https://logos.metrogo.app/api/flixbus~america/main.svg" alt="FlixBus logo" loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">FlixBus</div>
-            <div class="slug">flixbus~america</div>
-          </span>
-          <span class="endpoint">/flixbus~america/main.svg</span>
-        </li>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel bus"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/torrancetransit/main.svg" alt="Torrance Transit logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Torrance Transit</div>
+              <div class="slug">torrancetransit</div>
+            </span>
+            <span class="endpoint">/torrancetransit/main.svg</span>
+          </div>
+        </section>
 
-        <li>
-          <span class="roundel bus"></span>
-          <span class="mark"
-            ><img
-              src="https://logos.metrogo.app/api/montebellobuslines/main.svg"
-              alt="Montebello Bus Lines logo"
-              loading="lazy"
-          /></span>
-          <span class="meta">
-            <div class="name">Montebello Bus Lines</div>
-            <div class="slug">montebellobuslines</div>
-          </span>
-          <span class="endpoint">/montebellobuslines/main.svg</span>
-        </li>
-      </ul>
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel bus"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/bigbluebus/main.svg" alt="Big Blue Bus logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Big Blue Bus</div>
+              <div class="slug">bigbluebus</div>
+            </span>
+            <span class="endpoint">/bigbluebus/main.svg</span>
+          </div>
+        </section>
+
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel bus"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/montebellobuslines/main.svg" alt="Montebello Bus Lines logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">Montebello Bus Lines</div>
+              <div class="slug">montebellobuslines</div>
+            </span>
+            <span class="endpoint">/montebellobuslines/main.svg</span>
+          </div>
+        </section>
+
+        <section class="agency">
+          <div class="agency-header">
+            <span class="roundel intercity"></span>
+            <span class="mark"
+              ><img src="https://logos.metrogo.app/api/flixbus~america/main.svg" alt="FlixBus logo" loading="lazy"
+            /></span>
+            <span class="meta">
+              <div class="name">FlixBus</div>
+              <div class="slug">flixbus~america</div>
+            </span>
+            <span class="endpoint">/flixbus~america/main.svg</span>
+          </div>
+        </section>
+
+      </div>
 
       <section class="usage">
         <h2>Three ways to pull a mark</h2>
@@ -153,18 +215,17 @@
 
         <div class="snippet">
           <div class="label">HTML &lt;img&gt;</div>
-          <pre>&lt;<span class="kw">img</span> <span class="st">src</span>=<span class="cm">"https://logos.metrogo.app/metro~losangeles/main.svg"</span> <span class="st">alt</span>=<span class="cm">"LA Metro"</span> /&gt;</pre>
+          <pre>&lt;<span class="kw">img</span> <span class="st">src</span>=<span class="cm">"https://logos.metrogo.app/api/metro~losangeles/main.svg"</span> <span class="st">alt</span>=<span class="cm">"LA Metro"</span> /&gt;</pre>
         </div>
 
         <div class="snippet">
           <div class="label">curl</div>
-          <pre>curl -o metro.svg https://logos.metrogo.app/metro~losangeles/main.svg</pre>
+          <pre>curl -o metro.svg https://logos.metrogo.app/api/metro~losangeles/main.svg</pre>
         </div>
 
         <div class="snippet">
-          <div class="label">CSS class (via logos.css)</div>
+          <div class="label">CSS class (via logo.css)</div>
           <pre><span class="cm">/* style.css */</span>
-<span class="kw">@import</span> url(<span class="cm">"./logos.css"</span>);
 <span class="st">.agency-badge</span> {
   width: 48px;
   height: 48px;
@@ -176,7 +237,6 @@
           <pre>&lt;<span class="kw">span</span> <span class="st">class</span>=<span class="cm">"agency-badge logo logo-metro-losangeles"</span>&gt;&lt;/<span class="kw">span</span>&gt;</pre>
         </div>
       </section>
-      
 
       <footer>logos.metrogo.app · manifest-backed SVG lookup · logos cached &amp; proxied from source</footer>
     </div>

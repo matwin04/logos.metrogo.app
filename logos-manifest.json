@@ -5,7 +5,20 @@
       "classic": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Logo_Los_Angeles_County_Metropolitan_Transportation_Authority_1993_to_2004.svg"
     },
     "routes": {
-      "801": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LACMTA_Circle_A_Line.svg"
+      "801": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LACMTA_Circle_A_Line.svg",
+      "802": "https://upload.wikimedia.org/wikipedia/commons/a/aa/LACMTA_Circle_B_Line.svg",
+      "803": "https://upload.wikimedia.org/wikipedia/commons/7/76/LACMTA_Circle_C_Line.svg",
+      "805": "https://upload.wikimedia.org/wikipedia/commons/b/b3/LACMTA_Circle_D_Line.svg",
+      "804": "https://upload.wikimedia.org/wikipedia/commons/4/43/LACMTA_Circle_E_Line_2023.svg",
+      "807": "https://upload.wikimedia.org/wikipedia/commons/a/a7/LACMTA_Circle_K_Line.svg",
+      "L": "https://upload.wikimedia.org/wikipedia/commons/c/c0/LACMTA_Circle_L_Line.svg",
+      "G": "https://upload.wikimedia.org/wikipedia/commons/b/ba/LACMTA_Square_G_Line.svg",
+      "J": "https://upload.wikimedia.org/wikipedia/commons/c/cc/LACMTA_Square_J_Line.svg"
+    }
+  },
+  "octa": {
+    "icons": {
+      "main": "https://upload.wikimedia.org/wikipedia/commons/f/fe/OC_Bus_logo.svg"
     }
   },
   "foothilltransit": {
