@@ -7,6 +7,11 @@
       "704": "https://upload.wikimedia.org/wikipedia/commons/EXAMPLE/route_704.svg"
     }
   },
+  "san-francisco-bay-area:": {
+    "routes": {
+      "SF:M": "https://upload.wikimedia.org/wikipedia/commons/d/d1/M_Ocean_View_logo.svg"
+    }
+  },
   "bart": {
     "icons": {
       "main": "https://upload.wikimedia.org/wikipedia/commons/EXAMPLE/BART_logo.svg"
