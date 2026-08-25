@@ -13,8 +13,9 @@
     }
   },
   "metrolinktrains": {
-    "agencylogos": {
-      "main": "https://commons.wikimedia.org/wiki/File:Metrolink_icon_2022.svg"
+    "icons": {
+      "main": "https://commons.wikimedia.org/wiki/File:Metrolink_icon_2022.svg",
+      "main2": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Metrolink_icon.svg"
     }
   }
 }
