@@ -7,6 +7,11 @@
       "801": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LACMTA_Circle_A_Line.svg"
     }
   },
+  "foothilltransit":{
+    "icons":{
+      "main":"https://upload.wikimedia.org/wikipedia/commons/c/cd/Foothill_Transit_Logo.svg"
+    }
+  },
   "san-francisco-bay-area:": {
     "routes": {
       "SF:M": "https://upload.wikimedia.org/wikipedia/commons/d/d1/M_Ocean_View_logo.svg"
@@ -14,8 +19,8 @@
   },
   "metrolinktrains": {
     "icons": {
-      "main": "https://commons.wikimedia.org/wiki/File:Metrolink_icon_2022.svg",
-      "main2": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Metrolink_icon.svg"
+
+      "main": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Metrolink_icon.svg"
     }
   }
 }
