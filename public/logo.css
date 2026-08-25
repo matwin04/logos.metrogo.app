@@ -6,15 +6,15 @@
  */
 
 :root {
-  --logo-metro-losangeles: url("/metro~losangeles/main.svg");
-  --logo-foothilltransit: url("https://logos.metrogo.app/foothilltransit/main.svg");
-  --logo-metrolinktrains: url("https://logos.metrogo.app/metrolinktrains/main.svg");
-  --logo-amtrak: url("https://logos.metrogo.app/amtrak/main.svg");
-  --logo-ladot: url("https://logos.metrogo.app/ladot/main.svg");
-  --logo-torrancetransit: url("https://logos.metrogo.app/torrancetransit/main.svg");
-  --logo-bigbluebus: url("https://logos.metrogo.app/bigbluebus/main.svg");
-  --logo-flixbus-america: url("https://logos.metrogo.app/flixbus~america/main.svg");
-  --logo-montebellobuslines: url("https://logos.metrogo.app/montebellobuslines/main.svg");
+  --logo-metro-losangeles: url("https://logos.metrogo.app/api/metro~losangeles/main.svg");
+  --logo-foothilltransit: url("https://logos.metrogo.app/api/foothilltransit/main.svg");
+  --logo-metrolinktrains: url("https://logos.metrogo.app/api/metrolinktrains/main.svg");
+  --logo-amtrak: url("https://logos.metrogo.app/api/amtrak/main.svg");
+  --logo-ladot: url("https://logos.metrogo.app/api/ladot/main.svg");
+  --logo-torrancetransit: url("https://logos.metrogo.app/torrancetransit/api/main.svg");
+  --logo-bigbluebus: url("https://logos.metrogo.app/bigbluebus/api/main.svg");
+  --logo-flixbus-america: url("https://logos.metrogo.app/api/flixbus~america/main.svg");
+  --logo-montebellobuslines: url("https://logos.metrogo.app/api/montebellobuslines/main.svg");
 }
 
 .logo {
