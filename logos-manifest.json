@@ -1,14 +1,16 @@
 {
-  "agencies": {
-    "icons": [],
-    "routes": []
-  },
   "metro~losangeles": {
-    "icons": [
-      "main"
-    ],
-    "routes": [
-      "801"
-    ]
+    "icons": {
+      "main": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LAMetroLogo.svg"
+    },
+    "routes": {
+      "704": "https://upload.wikimedia.org/wikipedia/commons/EXAMPLE/route_704.svg"
+    }
+  },
+  "bart": {
+    "icons": {
+      "main": "https://upload.wikimedia.org/wikipedia/commons/EXAMPLE/BART_logo.svg"
+    },
+    "routes": {}
   }
 }
