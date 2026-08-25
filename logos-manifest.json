@@ -1,84 +1,51 @@
 {
   "metro~losangeles": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LAMetroLogo.svg",
-        "type": "svg"
-      },
-      "classic": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Logo_Los_Angeles_County_Metropolitan_Transportation_Authority_1993_to_2004.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/b/b2/LAMetroLogo.svg",
+      "classic": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Logo_Los_Angeles_County_Metropolitan_Transportation_Authority_1993_to_2004.svg"
     },
     "routes": {
-      "801": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LACMTA_Circle_A_Line.svg",
-        "type": "svg"
-      }
+      "801": "https://upload.wikimedia.org/wikipedia/commons/f/f9/LACMTA_Circle_A_Line.svg"
     }
   },
   "foothilltransit": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Foothill_Transit_Logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Foothill_Transit_Logo.svg"
     }
   },
   "metrolinktrains": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/2022_Metrolink_Logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/7/75/2022_Metrolink_Logo.svg"
     }
   },
   "amtrak": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Amtrak_logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Amtrak_logo.svg"
     }
   },
   "ladot": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/LADOT_logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/9/94/LADOT_logo.svg"
     }
   },
   "torrancetransit": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Torrance_Transit_logo_%281999%29.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Torrance_Transit_logo_%281999%29.svg"
     }
   },
   "bigbluebus": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Big_Blue_Bus_Logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/9/96/Big_Blue_Bus_Logo.svg"
     }
   },
   "flixbus~america": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Flix_Logo_2016.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Flix_Logo_2016.svg"
     }
   },
   "montebellobuslines": {
     "icons": {
-      "main": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Montebello_Bus_Lines_Logo.svg",
-        "type": "svg"
-      }
+      "main": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Montebello_Bus_Lines_Logo.svg"
     }
   }
 }
