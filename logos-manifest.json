@@ -16,10 +16,31 @@
       "J": "https://upload.wikimedia.org/wikipedia/commons/c/cc/LACMTA_Square_J_Line.svg"
     }
   },
-  "octa": {
-    "icons": {
-      "main": "https://upload.wikimedia.org/wikipedia/commons/f/fe/OC_Bus_logo.svg"
+  "bart": {
+    "icons": { "main": "https://upload.wikimedia.org/wikipedia/commons/2/26/Bart-logo.svg" },
+    "routes": {
+      "red": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Red_Line_%28BART%29.svg",
+      "orange": "https://upload.wikimedia.org/wikipedia/commons/7/71/Orange_Line_%28BART%29.svg",
+      "yellow": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Yellow_Line_%28BART%29.svg",
+      "green": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Green_Line_%28BART%29.svg",
+      "blue": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Blue_Line_%28BART%29.svg"
     }
+  },
+  "sfmta": {
+    "icons": { "main": "https://upload.wikimedia.org/wikipedia/commons/9/95/Muni_worm_logo.svg" },
+    "routes": {
+      "J": "https://upload.wikimedia.org/wikipedia/commons/f/f3/J_Church_logo.svg",
+      "K": "https://upload.wikimedia.org/wikipedia/commons/e/e9/K_Ingleside_logo.svg",
+      "L": "https://upload.wikimedia.org/wikipedia/commons/1/1f/L_Taraval_logo.svg",
+      "M": "https://upload.wikimedia.org/wikipedia/commons/d/d1/M_Ocean_View_logo.svg",
+      "N": "https://upload.wikimedia.org/wikipedia/commons/1/18/N_Judah_logo.svg",
+      "T": "https://upload.wikimedia.org/wikipedia/commons/b/b3/T_Third_Street_logo.svg"
+    }
+  },
+  "orangecountytransportationauthority": {
+      "icons": {
+        "main": "https://upload.wikimedia.org/wikipedia/commons/f/fe/OC_Bus_logo.svg"
+      }
   },
   "foothilltransit": {
     "icons": {

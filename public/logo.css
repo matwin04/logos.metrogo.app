@@ -15,6 +15,7 @@
   --logo-bigbluebus: url("https://logos.metrogo.app/api/bigbluebus/main.svg");
   --logo-flixbus-america: url("https://logos.metrogo.app/api/flixbus~america/main.svg");
   --logo-montebellobuslines: url("https://logos.metrogo.app/api/montebellobuslines/main.svg");
+  --logo-octa: url("https://logos.metrogo.app/api/octa/main.svg");
 }
 
 .logo {
@@ -52,4 +53,7 @@
 }
 .logo-montebellobuslines {
   background-image: var(--logo-montebellobuslines);
+}
+.logo-octa {
+  background-image: var(--logo-octa);
 }
