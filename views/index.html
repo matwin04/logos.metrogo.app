@@ -24,8 +24,17 @@
         </div>
       </header>
 
-      <div class="directory">
-        <section class="agency">
+      <div class="toolbar">
+        <input
+          id="agency-search"
+          type="search"
+          placeholder="Search agencies by name or slug…"
+          aria-label="Search agencies" />
+        <span id="search-count" class="search-count"></span>
+      </div>
+
+      <div class="directory" id="directory">
+        <section class="agency" data-name="LA Metro" data-slug="metro~losangeles">
           <div class="agency-header">
             <span class="roundel rail"></span>
             <span class="mark"
@@ -95,7 +104,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Foothill Transit" data-slug="foothilltransit">
           <div class="agency-header">
             <span class="roundel bus"></span>
             <span class="mark"
@@ -112,7 +121,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Metrolink" data-slug="metrolinktrains">
           <div class="agency-header">
             <span class="roundel rail"></span>
             <span class="mark"
@@ -126,7 +135,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Amtrak" data-slug="amtrak">
           <div class="agency-header">
             <span class="roundel rail"></span>
             <span class="mark"
@@ -140,7 +149,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="OCTA (OC Bus)" data-slug="octa">
           <div class="agency-header">
             <span class="roundel rail"></span>
             <span class="mark"
@@ -154,7 +163,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="LADOT" data-slug="ladot">
           <div class="agency-header">
             <span class="roundel bus"></span>
             <span class="mark"
@@ -168,7 +177,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Torrance Transit" data-slug="torrancetransit">
           <div class="agency-header">
             <span class="roundel bus"></span>
             <span class="mark"
@@ -185,7 +194,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Big Blue Bus" data-slug="bigbluebus">
           <div class="agency-header">
             <span class="roundel bus"></span>
             <span class="mark"
@@ -199,7 +208,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="Montebello Bus Lines" data-slug="montebellobuslines">
           <div class="agency-header">
             <span class="roundel bus"></span>
             <span class="mark"
@@ -216,7 +225,7 @@
           </div>
         </section>
 
-        <section class="agency">
+        <section class="agency" data-name="FlixBus" data-slug="flixbus~america">
           <div class="agency-header">
             <span class="roundel intercity"></span>
             <span class="mark"
@@ -230,6 +239,38 @@
           </div>
         </section>
       </div>
+
+      <p id="no-results" class="no-results" hidden>No agencies match your search.</p>
+
+      <section class="add-agency">
+        <h2>Add an agency</h2>
+        <p>Adds a new agency and its main logo URL to the directory (persisted via <code>POST /api/agencies</code>).</p>
+
+        <form id="add-agency-form">
+          <div class="field">
+            <label for="add-name">Display name</label>
+            <input id="add-name" name="name" type="text" placeholder="e.g. Culver CityBus" required />
+          </div>
+          <div class="field">
+            <label for="add-slug">Chateau / slug</label>
+            <input id="add-slug" name="slug" type="text" placeholder="e.g. culvercitybus" required />
+          </div>
+          <div class="field">
+            <label for="add-url">Main logo SVG URL</label>
+            <input id="add-url" name="url" type="url" placeholder="https://upload.wikimedia.org/..." required />
+          </div>
+          <div class="field">
+            <label for="add-category">Category</label>
+            <select id="add-category" name="category">
+              <option value="bus">Municipal bus</option>
+              <option value="rail">Rail / commuter</option>
+              <option value="intercity">Intercity</option>
+            </select>
+          </div>
+          <button type="submit">Add agency</button>
+        </form>
+        <p id="add-status" class="add-status" role="status"></p>
+      </section>
 
       <section class="usage">
         <h2>Three ways to pull a mark</h2>
@@ -265,5 +306,117 @@
 
       <footer>logos.metrogo.app · manifest-backed SVG lookup · logos cached &amp; proxied from source</footer>
     </div>
+
+    <script>
+      // ---------- Search / filter ----------
+      const searchInput = document.getElementById("agency-search");
+      const directory = document.getElementById("directory");
+      const noResults = document.getElementById("no-results");
+      const searchCount = document.getElementById("search-count");
+
+      function getAgencySections() {
+        return Array.from(directory.querySelectorAll(".agency"));
+      }
+
+      function filterAgencies() {
+        const q = searchInput.value.trim().toLowerCase();
+        const sections = getAgencySections();
+        let visibleCount = 0;
+
+        sections.forEach((section) => {
+          const name = (section.dataset.name || "").toLowerCase();
+          const slug = (section.dataset.slug || "").toLowerCase();
+          const matches = !q || name.includes(q) || slug.includes(q);
+          section.hidden = !matches;
+          if (matches) visibleCount++;
+        });
+
+        noResults.hidden = visibleCount !== 0;
+        searchCount.textContent = q ? `${visibleCount} match${visibleCount === 1 ? "" : "es"}` : "";
+      }
+
+      searchInput.addEventListener("input", filterAgencies);
+
+      // ---------- Add agency ----------
+      const addForm = document.getElementById("add-agency-form");
+      const addStatus = document.getElementById("add-status");
+
+      function slugify(value) {
+        return value.trim();
+      }
+
+      function roundelClassFor(category) {
+        if (category === "rail") return "rail";
+        if (category === "intercity") return "intercity";
+        return "bus";
+      }
+
+      function appendAgencySection({ name, slug, url, category }) {
+        const section = document.createElement("section");
+        section.className = "agency";
+        section.dataset.name = name;
+        section.dataset.slug = slug;
+
+        section.innerHTML = `
+          <div class="agency-header">
+            <span class="roundel ${roundelClassFor(category)}"></span>
+            <span class="mark"><img src="${url}" alt="${name} logo" loading="lazy" /></span>
+            <span class="meta">
+              <div class="name">${name}</div>
+              <div class="slug">${slug}</div>
+            </span>
+            <span class="endpoint">/${slug}/main.svg</span>
+          </div>
+        `;
+
+        directory.appendChild(section);
+        filterAgencies();
+      }
+
+      addForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        addStatus.textContent = "";
+        addStatus.className = "add-status";
+
+        const formData = new FormData(addForm);
+        const name = formData.get("name").trim();
+        const slug = slugify(formData.get("slug"));
+        const url = formData.get("url").trim();
+        const category = formData.get("category");
+
+        if (!name || !slug || !url) {
+          addStatus.textContent = "All fields are required.";
+          addStatus.classList.add("error");
+          return;
+        }
+
+        const submitBtn = addForm.querySelector("button[type=submit]");
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch("/api/agencies", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chateau: slug, url, name, category })
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            throw new Error(data.error || `Request failed (${res.status})`);
+          }
+
+          appendAgencySection({ name, slug, url, category });
+          addForm.reset();
+          addStatus.textContent = `Added "${name}".`;
+          addStatus.classList.add("success");
+        } catch (err) {
+          addStatus.textContent = err.message || "Failed to add agency.";
+          addStatus.classList.add("error");
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    </script>
   </body>
 </html>

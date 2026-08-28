@@ -26,7 +26,89 @@
   background-position: center;
   background-size: contain;
 }
+/* Append to logo.css or style.css */
 
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+#agency-search {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 0.95rem;
+}
+
+.search-count {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.no-results {
+  text-align: center;
+  opacity: 0.6;
+  margin: 2rem 0;
+}
+
+.add-agency {
+  margin: 3rem 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.add-agency form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.add-agency .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.add-agency label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.add-agency input,
+.add-agency select {
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.add-agency button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.add-status.success {
+  color: #1a7f37;
+}
+
+.add-status.error {
+  color: #c0392b;
+}
 .logo-metro-losangeles {
   background-image: var(--logo-metro-losangeles);
 }
