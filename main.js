@@ -1,9 +1,9 @@
 import express from "express";
 import path from "path";
-import fs from "fs";
 import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
+import { sql, setupDB } from "./db.js";
 
 dotenv.config();
 
@@ -13,17 +13,9 @@ const __dirname = path.dirname(__filename);
 
 const VIEWS_DIR = path.join(__dirname, "views");
 const PARTIALS_DIR = path.join(VIEWS_DIR, "partials");
-const MANIFEST_PATH = path.join(__dirname, "logos-manifest.json");
 
-// Manifest shape:
-// {
-//   "metro~losangeles": {
-//     "icons":  { "main": "https://upload.wikimedia.org/.../main.svg" },
-//     "routes": { "704": "https://upload.wikimedia.org/.../704.svg" }
-//   }
-// }
-// Hand-maintained now that logos come from Wikimedia instead of local files.
-const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
+// DB setup — creates agencies / agency_logos / routes_logos if they don't exist yet
+setupDB();
 
 // Simple in-memory cache so repeat requests don't re-fetch Wikimedia every time.
 const SVG_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 1 day
@@ -95,60 +87,103 @@ app.get("/about", (req, res) => {
 
 // =============================================
 // LOGO API
-// All lookups go through logos-manifest.json, which now maps
-// agency/icon/route names to Wikimedia SVG URLs. Requests are proxied
-// and cached in memory so the response looks like it's coming from
-// this server, not Wikimedia directly.
+// Lookups now go through Postgres (agencies / agency_logos / routes_logos)
+// instead of the old logos-manifest.json. Requests are proxied and cached
+// in memory so the response looks like it's coming from this server,
+// not Wikimedia directly.
 // =============================================
 
 // GET /api/:agencyId/main.svg  e.g. /api/metro~losangeles/main.svg
+// Uses the first agency_logos row for that chateau as the "main" logo.
 app.get("/api/:agencyId/main.svg", async (req, res) => {
     const { agencyId } = req.params;
-    const url = manifest[agencyId]?.icons?.main;
+    try {
+        const rows = await sql`
+            SELECT url FROM agency_logos
+            WHERE agency = ${agencyId}
+            ORDER BY id ASC
+            LIMIT 1
+        `;
 
-    if (!url) {
-        return res
-            .status(404)
-            .json({ error: `No main logo found for "${agencyId}"` });
+        if (rows.length === 0) {
+            return res
+                .status(404)
+                .json({ error: `No main logo found for "${agencyId}"` });
+        }
+
+        await sendSvg(res, rows[0].url);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Database lookup failed" });
     }
-
-    await sendSvg(res, url);
 });
 
 // GET /api/:agencyId/routes/:routeId.svg  e.g. /api/metro~losangeles/routes/704.svg
 app.get("/api/:agencyId/routes/:routeId.svg", async (req, res) => {
     const { agencyId, routeId } = req.params;
-    const url = manifest[agencyId]?.routes?.[routeId];
+    try {
+        const rows = await sql`
+            SELECT source_url FROM routes_logos
+            WHERE chateau = ${agencyId} AND route_id = ${routeId}
+            ORDER BY id ASC
+            LIMIT 1
+        `;
 
-    if (!url) {
-        return res
-            .status(404)
-            .json({ error: `No route "${routeId}" logo found for "${agencyId}"` });
+        if (rows.length === 0) {
+            return res
+                .status(404)
+                .json({ error: `No route "${routeId}" logo found for "${agencyId}"` });
+        }
+
+        await sendSvg(res, rows[0].source_url);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Database lookup failed" });
     }
-
-    await sendSvg(res, url);
 });
 
-// GET /api/agencies -> full manifest
+// GET /api/agencies -> list of all known agency chateaus
 // (must come before /api/:agencyId, or "agencies" gets matched as an id)
-app.get("/api/agencies", (req, res) => {
-    res.json(manifest);
+app.get("/api/agencies", async (req, res) => {
+    try {
+        const rows = await sql`SELECT chateau FROM agencies ORDER BY chateau ASC`;
+        res.json(rows.map((r) => r.chateau));
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Database lookup failed" });
+    }
 });
 
-// GET /api/:agencyId -> list available icon/route names for that agency
-app.get("/api/:agencyId", (req, res) => {
+// GET /api/:agencyId -> list available logo URLs and route ids for that agency
+app.get("/api/:agencyId", async (req, res) => {
     const { agencyId } = req.params;
-    const entry = manifest[agencyId];
+    try {
+        const agencyRows = await sql`
+            SELECT id FROM agencies WHERE chateau = ${agencyId} LIMIT 1
+        `;
 
-    if (!entry) {
-        return res.status(404).json({ error: `No logos found for "${agencyId}"` });
+        if (agencyRows.length === 0) {
+            return res.status(404).json({ error: `No agency found for "${agencyId}"` });
+        }
+
+        const logos = await sql`
+            SELECT url FROM agency_logos WHERE agency = ${agencyId} ORDER BY id ASC
+        `;
+        const routes = await sql`
+            SELECT route_id, variant FROM routes_logos
+            WHERE chateau = ${agencyId}
+            ORDER BY route_id ASC
+        `;
+
+        res.json({
+            agency: agencyId,
+            logos: logos.map((l) => l.url),
+            routes: routes.map((r) => ({ route_id: r.route_id, variant: r.variant }))
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Database lookup failed" });
     }
-
-    res.json({
-        agency: agencyId,
-        icons: Object.keys(entry.icons ?? {}),
-        routes: Object.keys(entry.routes ?? {})
-    });
 });
 
 if (!process.env.VERCEL && !process.env.NOW_REGION) {
