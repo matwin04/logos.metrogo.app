@@ -2,8 +2,8 @@ import postgres from "postgres";
 import dotenv from "dotenv";
 dotenv.config();
 
-const connectionString = process.env.DB_POSTGRES_URL_NO_SSL;
-const sql = postgres(process.env.DB_POSTGRES_URL);
+const connectionString = process.env.LOGO_POSTGRES_URL_NO_SSL;
+const sql = postgres(process.env.LOGO_POSTGRES_URL);
 
 console.log(`Connection String: ${connectionString}`);
 console.log(`NO SSL-${process.env.DB_POSTGRES_URL_NO_SSL}`);
