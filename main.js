@@ -154,6 +154,37 @@ app.get("/api/agencies", async (req, res) => {
     }
 });
 
+// POST /api/agencies -> add a new agency + its main logo URL
+// Body: { chateau: "culvercitybus", url: "https://...svg", name?: "...", category?: "..." }
+// name/category aren't stored yet (no columns for them) — accepted for
+// future use and to keep the request shape stable for the frontend.
+app.post("/api/agencies", async (req, res) => {
+    const { chateau, url } = req.body;
+
+    if (!chateau || !url) {
+        return res.status(400).json({ error: "chateau and url are required" });
+    }
+
+    try {
+        await sql`
+            INSERT INTO agencies (chateau)
+            VALUES (${chateau})
+            ON CONFLICT (chateau) DO NOTHING
+        `;
+
+        await sql`
+            INSERT INTO agency_logos (agency, url)
+            VALUES (${chateau}, ${url})
+            ON CONFLICT (agency, url) DO NOTHING
+        `;
+
+        res.status(201).json({ chateau, url });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to add agency" });
+    }
+});
+
 // GET /api/:agencyId -> list available logo URLs and route ids for that agency
 app.get("/api/:agencyId", async (req, res) => {
     const { agencyId } = req.params;
