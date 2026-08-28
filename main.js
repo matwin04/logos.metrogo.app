@@ -106,9 +106,7 @@ app.get("/api/:agencyId/main.svg", async (req, res) => {
         `;
 
         if (rows.length === 0) {
-            return res
-                .status(404)
-                .json({ error: `No main logo found for "${agencyId}"` });
+            return res.status(404).json({ error: `No main logo found for "${agencyId}"` });
         }
 
         await sendSvg(res, rows[0].url);
@@ -130,9 +128,7 @@ app.get("/api/:agencyId/routes/:routeId.svg", async (req, res) => {
         `;
 
         if (rows.length === 0) {
-            return res
-                .status(404)
-                .json({ error: `No route "${routeId}" logo found for "${agencyId}"` });
+            return res.status(404).json({ error: `No route "${routeId}" logo found for "${agencyId}"` });
         }
 
         await sendSvg(res, rows[0].source_url);
